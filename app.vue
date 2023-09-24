@@ -1,5 +1,6 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <IronManWelcome />
+    <CustomHelloWorld />
   </div>
 </template>
