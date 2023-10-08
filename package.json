@@ -17,7 +17,9 @@
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "jsonwebtoken": "^9.0.2",
     "nuxt": "^3.7.4",
+    "nuxt-icon": "^0.5.0",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }
 }
