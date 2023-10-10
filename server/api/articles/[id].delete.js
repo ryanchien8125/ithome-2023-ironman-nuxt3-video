@@ -1,6 +1,12 @@
 import { pool } from '@/server/utils/db'
 
 export default defineEventHandler(async (event) => {
+  if (event.context?.auth?.user?.id !== 1) {
+    throw createError({
+      statusCode: 401,
+      message: '沒有權限'
+    })
+  }
   const articleId = getRouterParam(event, 'id')
 
   const result = await pool

@@ -39,6 +39,7 @@
             <div class="group/menu-item px-1 py-1">
               <NuxtLink
                 class="flex w-full items-center rounded-md px-2 py-2 text-sm group-hover/menu-item:bg-emerald-500 group-hover/menu-item:text-white"
+                to="/articles/create"
               >
                 <Icon
                   class="mr-2 h-5 w-5 text-emerald-400 group-hover/menu-item:text-white"
