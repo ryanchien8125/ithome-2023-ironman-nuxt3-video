@@ -5,7 +5,7 @@
         <div class="space-y-8 divide-y divide-gray-200">
           <div>
             <div class="mt-6">
-              <h3 class="text-xl font-medium leading-6 text-gray-900">新增文章</h3>
+              <h3 class="text-xl font-medium leading-6 text-gray-900">更新文章</h3>
             </div>
 
             <div class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-6">
@@ -71,7 +71,7 @@
               type="submit"
               class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
             >
-              發布
+              更新
             </button>
           </div>
         </div>
@@ -81,19 +81,17 @@
 </template>
 
 <script setup>
-const articleData = reactive({
-  title: '',
-  content: '',
-  cover: ''
-})
+const route = useRoute()
+
+const { data: articleData } = await useFetch(`/api/articles/${route.query.id}`)
 
 const handleSubmit = async () => {
-  await $fetch('/api/articles', {
-    method: 'POST',
+  await $fetch(`/api/articles/${route.query.id}`, {
+    method: 'PATCH',
     body: {
-      title: articleData.title,
-      content: articleData.content,
-      cover: articleData.cover
+      title: articleData.value.title,
+      content: articleData.value.content,
+      cover: articleData.value.cover
     }
   })
     .then((response) => {

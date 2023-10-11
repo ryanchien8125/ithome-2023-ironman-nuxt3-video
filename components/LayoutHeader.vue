@@ -75,13 +75,25 @@
 </template>
 
 <script setup>
-const { data: userInfo } = await useFetch('/api/whoami')
+const { data } = await useFetch('/api/whoami')
+const userInfo = useState('userInfo')
+
+watch(
+  data,
+  (newData) => {
+    userInfo.value = newData
+  },
+  {
+    immediate: true
+  }
+)
 
 const handleLogout = () => {
   $fetch('/api/session', {
     method: 'DELETE'
   }).then(() => {
     userInfo.value = null
+    navigateTo('/')
   })
 }
 </script>

@@ -8,6 +8,10 @@ const urls = [
   {
     path: /^\/api\/articles\/(.*)($|\?.*|#.*)/,
     method: 'DELETE'
+  },
+  {
+    path: /^\/api\/articles\/(.*)($|\?.*|#.*)/,
+    method: 'PATCH'
   }
 ]
 
