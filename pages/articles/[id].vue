@@ -70,4 +70,23 @@ const handleDeleteArticle = () => {
       })
   }
 }
+
+useHead({
+  title: article.value.title
+})
+
+const description = article.value.content.replace(/\n/g, ' ').substring(0, 300)
+
+useSeoMeta({
+  description,
+  ogTitle: article.value.title,
+  ogDescription: description,
+  ogImage: article.value.cover,
+  ogUrl: () => `http://localhost:3000/articles/${article.value.id}`,
+  twitterTitle: article.value.title,
+  twitterDescription: description,
+  twitterImage: article.value.cover,
+  twitterUrl: () => `http://localhost:3000/articles/${article.value.id}`,
+  twitterCard: 'summary_large_image'
+})
 </script>
