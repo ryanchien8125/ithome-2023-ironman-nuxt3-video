@@ -8,7 +8,6 @@
 
 <script setup>
 useHead({
-  title: 'Nuxt 3 Blog',
   titleTemplate: (title) => (title ? `${title} - Nuxt 3 Blog` : 'Nuxt 3 Blog'),
   htmlAttrs: {
     lang: 'zh-TW'
