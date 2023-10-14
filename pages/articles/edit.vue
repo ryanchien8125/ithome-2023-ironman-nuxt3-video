@@ -83,7 +83,11 @@
 <script setup>
 const route = useRoute()
 
-const { data: articleData } = await useFetch(`/api/articles/${route.query.id}`)
+const { data: articleData, error } = await useFetch(`/api/articles/${route.query.id}`)
+
+if (error.value) {
+  throw createError({ statusCode: 400, message: '您要更新的文章不存在或已經被刪除' })
+}
 
 const handleSubmit = async () => {
   await $fetch(`/api/articles/${route.query.id}`, {

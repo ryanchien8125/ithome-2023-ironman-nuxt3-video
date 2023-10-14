@@ -52,6 +52,11 @@ const route = useRoute()
 
 const { pending, data: article, error } = await useFetch(`/api/articles/${route.params.id}`)
 
+if (error.value) {
+  console.log(error.value)
+  throw createError({ statusCode: 404 })
+}
+
 const userInfo = useState('userInfo')
 
 const handleDeleteArticle = () => {
