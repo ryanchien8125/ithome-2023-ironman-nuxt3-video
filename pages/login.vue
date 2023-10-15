@@ -67,7 +67,7 @@ const loginData = reactive({
 })
 
 const handleLogin = async () => {
-  const { data } = await useFetch('/api/login', {
+  const { data, error } = await useFetch('/api/login', {
     method: 'POST',
     body: {
       account: loginData.account,
@@ -75,7 +75,9 @@ const handleLogin = async () => {
     }
   })
 
-  if (data.value) {
+  if (error.value) {
+    alert(error.value?.data?.message || '登入失敗')
+  } else if (data.value) {
     navigateTo('/')
   }
 }
