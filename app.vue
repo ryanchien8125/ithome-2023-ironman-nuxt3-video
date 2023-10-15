@@ -20,11 +20,26 @@ useHead({
   ]
 })
 
-useSeoMeta({
+const { origin } = useRequestURL()
+const { baseURL } = useRuntimeConfig().app
+
+const seoMeta = {
+  title: 'Nuxt 3 Blog',
   description: '歡迎來到使用 Nuxt 3 開發的部落格網站',
-  ogTitle: 'Nuxt 3 Blog',
-  ogDescription: '歡迎來到使用 Nuxt 3 開發的部落格網站',
-  ogUrl: 'http://localhost:3000/',
-  ogImage: 'https://i.imgur.com/AVNujNC.png'
+  image: 'https://i.imgur.com/AVNujNC.png',
+  url: `${origin}${baseURL}`
+}
+
+useSeoMeta({
+  description: seoMeta.description,
+  ogTitle: seoMeta.title,
+  ogDescription: seoMeta.description,
+  ogImage: seoMeta.image,
+  ogUrl: seoMeta.url,
+  twitterTitle: seoMeta.title,
+  twitterDescription: seoMeta.description,
+  twitterImage: seoMeta.image,
+  twitterUrl: seoMeta.url,
+  twitterCard: 'summary_large_image'
 })
 </script>

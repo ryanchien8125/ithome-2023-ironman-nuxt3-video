@@ -81,17 +81,19 @@ useHead({
 })
 
 const description = article.value.content.replace(/\n/g, ' ').substring(0, 300)
+const { origin } = useRequestURL()
+const { baseURL } = useRuntimeConfig().app
 
 useSeoMeta({
   description,
   ogTitle: article.value.title,
   ogDescription: description,
   ogImage: article.value.cover,
-  ogUrl: () => `http://localhost:3000/articles/${article.value.id}`,
+  ogUrl: () => `${origin}${baseURL}/articles/${article.value.id}`,
   twitterTitle: article.value.title,
   twitterDescription: description,
   twitterImage: article.value.cover,
-  twitterUrl: () => `http://localhost:3000/articles/${article.value.id}`,
+  twitterUrl: () => `${origin}${baseURL}/articles/${article.value.id}`,
   twitterCard: 'summary_large_image'
 })
 </script>
