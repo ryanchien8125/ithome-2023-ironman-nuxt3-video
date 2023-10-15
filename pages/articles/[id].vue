@@ -14,7 +14,7 @@
         </div>
         <div class="my-2 flex flex-col justify-between sm:my-0 sm:flex-row sm:items-center">
           <time class="my-2 text-sm text-gray-400">
-            {{ new Date(article.updated_at).toLocaleString() }}
+            {{ new Date(article.updated_at).toLocaleString('zh-TW') }}
           </time>
           <div v-if="userInfo?.id === 1" class="flex-rowx flex gap-3">
             <NuxtLink

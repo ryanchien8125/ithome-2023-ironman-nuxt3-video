@@ -106,6 +106,6 @@ const {
 })
 
 const date2LocaleString = (date) => {
-  return new Date(date).toLocaleString()
+  return new Date(date).toLocaleString('zh-TW')
 }
 </script>
